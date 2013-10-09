@@ -1,0 +1,20 @@
+module.exports = {
+  "Android": "a4c639",
+  "Big Cartel": "97b538",
+  "Deviantart": "4e6252",
+  "Envato": "528036",
+  "Evernote": "5ba525",
+  "Forrst": "5b9a68",
+  "Groupon": "82b548",
+  "Kickstarter": "87c442",
+  "NVIDIA": "76b900",
+  "Shopify": "96bf48",
+  "Spotify": "81b71a",
+  "TechCrunch": "0a9600",
+  "Treehouse": "5cb868",
+  "Typekit": "9aca3c",
+  "Vine": "00a478",
+  "XBOX": "9bc848",
+  "Zendesk": "78a300",
+  "Zerply": "9dcc7a"
+};

@@ -15,6 +15,7 @@ module.exports = {
   "Instagram": "3f729b",
   "Intel": "0071c5",
   "LinkedIn": "0e76a8",
+  "MetaFilter": "006699",
   "Nokia": "183693",
   "Pinboard": "0000e6",
   "Rdio": "008fd5",

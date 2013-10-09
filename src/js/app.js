@@ -1,17 +1,42 @@
 var crel = require('crel');
 var brandColors = require('./brand-colors');
 
-var brands = [];
-for (var brand in brandColors.blues) {
-    if (brandColors.blues.hasOwnProperty(brand)) {
-        brands.push(brand);
+var colorGroups = [];
+for (var colorGroup in brandColors) {
+    if (brandColors.hasOwnProperty(colorGroup)) {
+        colorGroups.push(colorGroup);
     }
 }
-var numBrands = brands.length;
+var numColorGroups = colorGroups.length;
+
+var app = {};
+
+app.el = crel('div', {id: 'app', class: 'app'});
+document.body.appendChild(app.el);
+
+var allColorsEnabled = false;
+var numAttempted = 0;
+var numCorrect = 0;
 
 function getChoices() {
-    var indexA = Math.floor(Math.random() * numBrands);
-    var indexB = indexA;
+    var brand, brands, numBrands, indexA, indexB;
+
+    var colorGroup = allColorsEnabled ? colorGroups[Math.floor(Math.random() * numColorGroups)] : 'blues';
+
+    if (!getChoices[colorGroup]) {
+        getChoices[colorGroup] = [];
+        for (brand in brandColors[colorGroup]) {
+            if (brandColors[colorGroup].hasOwnProperty(brand)) {
+                getChoices[colorGroup].push(brand);
+            }
+        }
+    }
+
+    brands = getChoices[colorGroup];
+    numBrands = brands.length;
+
+    indexA = Math.floor(Math.random() * numBrands);
+    indexB = indexA;
 
     while (indexA === indexB) {
         indexB = Math.floor(Math.random() * numBrands);
@@ -20,23 +45,15 @@ function getChoices() {
     return {
         correct: {
             brand: brands[indexA],
-            color: brandColors.blues[brands[indexA]]
+            color: brandColors[colorGroup][brands[indexA]]
         },
         incorrect: {
             brand: brands[indexB],
-            color: brandColors.blues[brands[indexB]]
+            color: brandColors[colorGroup][brands[indexB]]
         }
 
     };
 }
-
-var app = {};
-
-app.el = crel('div', {id: 'app', class: 'app'});
-document.body.appendChild(app.el);
-
-var numAttempted = 0;
-var numCorrect = 0;
 
 function nextRound() {
 
@@ -49,6 +66,8 @@ function nextRound() {
     var choiceAEl = crel('a', choiceA.brand);
     var choiceBEl = crel('a', choiceB.brand);
     var orEl = crel('p', 'or');
+
+    var enableAllColorsEl = crel('a', {'class': 'enable-all-colors'}, 'Want more than blues?');
 
     var onChoose = function () {
         var isCorrect = (this.textContent || this.innerText) === choices.correct.brand;
@@ -77,8 +96,19 @@ function nextRound() {
         setTimeout(nextRound, 2000);
     };
 
+    var onEnableAllColors = function () {
+        allColorsEnabled = true;
+
+        app.el.innerHTML = "";
+
+        var resultEl = crel('a', {'class': 'result'}, 'You asked for it...');
+        app.el.appendChild(resultEl);
+        setTimeout(nextRound, 2000);
+    };
+
     choiceAEl.onclick = onChoose;
     choiceBEl.onclick = onChoose;
+    enableAllColorsEl.onclick = onEnableAllColors;
 
     app.el.innerHTML = "";
     document.body.style.backgroundColor = '#' + choices.correct.color;
@@ -87,6 +117,9 @@ function nextRound() {
         app.el.appendChild(choiceAEl);
         app.el.appendChild(orEl);
         app.el.appendChild(choiceBEl);
+        if (!allColorsEnabled && numAttempted > 4) {
+            app.el.appendChild(enableAllColorsEl);
+        }
     }, 250);
 }
 
