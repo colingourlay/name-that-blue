@@ -1,9 +1,9 @@
 var crel = require('crel');
-var colors = require('./colors');
+var brandColors = require('./brand-colors');
 
 var brands = [];
-for (var brand in colors) {
-    if (colors.hasOwnProperty(brand)) {
+for (var brand in brandColors.blues) {
+    if (brandColors.blues.hasOwnProperty(brand)) {
         brands.push(brand);
     }
 }
@@ -20,11 +20,11 @@ function getChoices() {
     return {
         correct: {
             brand: brands[indexA],
-            color: colors[brands[indexA]]
+            color: brandColors.blues[brands[indexA]]
         },
         incorrect: {
             brand: brands[indexB],
-            color: colors[brands[indexB]]
+            color: brandColors.blues[brands[indexB]]
         }
 
     };
