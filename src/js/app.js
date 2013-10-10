@@ -83,13 +83,6 @@ function nextRound() {
         var resultEl = crel('a', {'class': 'result'}, result);
         app.el.appendChild(resultEl);
 
-        /*
-        var incorrectChoiceColorEl = crel('span');
-        incorrectChoiceColorEl.style.backgroundColor = '#' + choices.incorrect.color;
-        var incorrectChoiceEl = crel('p', choices.incorrect.brand + ' is ', incorrectChoiceColorEl);
-        app.el.appendChild(incorrectChoiceEl);
-        */
-
         var numEl = crel('p', '' + numCorrect + ' / ' + numAttempted + ' correct');
         app.el.appendChild(numEl);
 
