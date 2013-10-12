@@ -11,7 +11,10 @@ var numColorGroups = colorGroups.length;
 
 var app = {};
 
-app.el = crel('div', {id: 'app', class: 'app'});
+app.bg2el = crel('div', {class: 'bg2'});
+document.body.appendChild(app.bg2el);
+
+app.el = crel('div', {id: 'app', 'class': 'app'});
 document.body.appendChild(app.el);
 
 var allColorsEnabled = false;
@@ -63,9 +66,9 @@ function nextRound() {
     var choiceA = coin ? choices.correct : choices.incorrect;
     var choiceB = coin ? choices.incorrect : choices.correct;
 
-    var choiceAEl = crel('a', choiceA.brand);
-    var choiceBEl = crel('a', choiceB.brand);
-    var orEl = crel('p', 'or');
+    var choiceAEl = crel('a', {'class': 'color-choice'}, choiceA.brand);
+    var choiceBEl = crel('a', {'class': 'color-choice'}, choiceB.brand);
+    var orEl = crel('p', {'class': 'color-choice'}, choices.correct.brand);
 
     var enableAllColorsEl = crel('a', {'class': 'enable-all-colors'}, 'Want more than blues?');
 
@@ -79,11 +82,11 @@ function nextRound() {
 
         app.el.innerHTML = "";
 
-        var result = isCorrect ? 'Correct!' : 'Nope, it\'s ' + choices.correct.brand;
-        var resultEl = crel('a', {'class': 'result'}, result);
+        var result = isCorrect ? 'Correct!' : 'Nope';
+        var resultEl = crel('p', {'class': 'result color-choice'}, result);
         app.el.appendChild(resultEl);
 
-        var numEl = crel('p', '' + numCorrect + ' / ' + numAttempted + ' correct');
+        var numEl = crel('p', {'class': 'num color-choice'}, '' + numCorrect + ' / ' + numAttempted + ' correct');
         app.el.appendChild(numEl);
 
         setTimeout(nextRound, 2000);
@@ -94,7 +97,7 @@ function nextRound() {
 
         app.el.innerHTML = "";
 
-        var resultEl = crel('a', {'class': 'result'}, 'You asked for it...');
+        var resultEl = crel('p', {'class': 'result color-choice'}, 'You asked for it...');
         app.el.appendChild(resultEl);
         setTimeout(nextRound, 2000);
     };
@@ -104,12 +107,13 @@ function nextRound() {
     enableAllColorsEl.onclick = onEnableAllColors;
 
     app.el.innerHTML = "";
-    document.body.style.backgroundColor = '#' + choices.correct.color;
+    document.body.style.backgroundColor = '#' + choiceA.color;
+    app.bg2el.style.backgroundColor = '#' + choiceB.color;
 
     setTimeout(function () {
         app.el.appendChild(choiceAEl);
-        app.el.appendChild(orEl);
         app.el.appendChild(choiceBEl);
+        app.el.appendChild(orEl);
         if (!allColorsEnabled && numAttempted > 4) {
             app.el.appendChild(enableAllColorsEl);
         }

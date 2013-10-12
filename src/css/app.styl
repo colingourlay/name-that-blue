@@ -19,6 +19,27 @@ p
     font-style italic
     line-height 1
 
+p.color-choice
+    position absolute
+    left 0
+    width 100%
+    top 50%
+    margin-top -0.75em
+    color white
+    color rgba(255,255,255,0.9)
+    font-size 3em
+    text-decoration none
+    text-shadow 0 0 .075em #666
+    text-shadow 0 0 .075em rgba(0,0,0,0.5)
+    pointer-events none
+
+p.result
+    margin-top -1.5em
+
+p.num
+    font-size 1.5em
+    margin-top 1em
+
 span
     display inline-block
     width 1em
@@ -47,6 +68,20 @@ a.enable-all-colors
     width 100%
     font-size 1em
     color rgba(255,255,255,0.75)
+
+a.color-choice, .bg2
+    position absolute
+    top 0
+    left 0
+    margin 0
+    padding 0
+    width 50%
+    height 100%
+    color transparent
+    text-shadow none
+
+a.color-choice + a.color-choice, .bg2
+    left 50%
 
 .app
     display table-cell
