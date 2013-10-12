@@ -82,7 +82,7 @@ function nextRound() {
 
         app.el.innerHTML = "";
 
-        var result = isCorrect ? 'Correct!' : 'Nope';
+        var result = isCorrect ? 'Correct!' : 'Nope, that\'s ' + choices.incorrect.brand;
         var resultEl = crel('p', {'class': 'result color-choice'}, result);
         app.el.appendChild(resultEl);
 
