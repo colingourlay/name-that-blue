@@ -5,19 +5,19 @@
   "author": {
     "name": "Colin Gourlay",
     "email": "colin@colin-gourlay.com",
-    "url": "http://colin-gourlay.com/"
+    "url": "http://namethatblue.com/"
   },
   "devDependencies": {
     "grunt": "~0.4.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-jshint": "~0.1.1",
     "grunt-browserify": "~1.2.1",
-    "grunt-contrib-stylus": "~0.6.0",
-    "grunt-dir2json": "~0.1.0",
-    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-stylus": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.4",
     "grunt-contrib-watch": "~0.2.0",
-    "grunt-contrib-uglify": "~0.2.4"
+    "grunt-dir2json": "~0.1.0"
   },
   "dependencies": {
     "crel": "~1.0.0"
