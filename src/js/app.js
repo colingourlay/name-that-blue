@@ -1,5 +1,7 @@
 var crel = require('crel');
+
 var brandColors = require('./brand-colors');
+var util = require('./util');
 
 var colorGroups = [];
 for (var colorGroup in brandColors) {
@@ -11,8 +13,21 @@ var numColorGroups = colorGroups.length;
 
 var app = {};
 
-app.el = crel('div', {id: 'app', class: 'app'});
+app.el = crel('section', {id: 'app', class: 'app'});
 document.body.appendChild(app.el);
+
+var navEl = crel('div', {'class': 'nav'},
+    crel('h1', 'Name That Blue'),
+    crel('a', {href:'.'}, 'New Game'),
+    crel('a', {href:'http://twitter.com/NameThatBlue', target: '_blank'}, 'Follow @NameThatBlue')
+);
+document.body.appendChild(navEl);
+var naviconButtonEl = crel('a', {'class': 'navicon_button'}, crel('div', {'class': 'navicon'}));
+naviconButtonEl.onclick = function () {
+    navEl.className = 'nav' + (navEl.className.length > 3 ? '' : ' nav-open');
+    naviconButtonEl.className = 'navicon_button' + (naviconButtonEl.className.length > 14 ? '' : ' navicon_button-active');
+};
+document.body.appendChild(naviconButtonEl);
 
 var allColorsEnabled = false;
 var numAttempted = 0;
@@ -105,6 +120,7 @@ function nextRound() {
 
     app.el.innerHTML = "";
     document.body.style.backgroundColor = '#' + choices.correct.color;
+    // document.body.className = util.yiq(choices.correct.color) > 200 ? 'light' : 'dark';
 
     setTimeout(function () {
         app.el.appendChild(choiceAEl);

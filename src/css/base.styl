@@ -1,0 +1,53 @@
+*
+    -webkit-box-sizing border-box
+    -moz-box-sizing border-box
+    box-sizing border-box
+    -webkit-tap-highlight-color transparent
+
+html
+    font-size 100%
+    background-color #333
+
+html, body, section
+    position relative
+    margin 0
+    padding 0
+    height 100%
+    overflow hidden
+
+body
+    display table
+    overflow hidden
+    width 100%
+    background #333
+    color white
+    font-family 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif
+    transition background-color 0.5s
+    -webkit-backface-visibility hidden
+    backface-visibility hidden
+    -webkit-touch-callout none
+    touch-callout none
+    -webkit-text-size-adjust none
+    text-size-adjust none
+    -webkit-user-select none
+    user-select none
+
+    & *, & *:before, & *:after
+        -webkit-transform translate3d(0,0,0)
+        -moz-transform translate3d(0,0,0)
+        -ms-transform translate3d(0,0,0)
+        transform translate3d(0,0,0)
+
+section
+    display table-cell
+    vertical-align middle
+    text-align center
+    transition background-color 0.5sx
+
+@media (min-width: 769px)
+    body
+        font-size 150%
+
+@media (min-width: 1025px)
+    body
+        font-size 200%

@@ -46,12 +46,12 @@ module.exports = function(grunt) {
 		stylus: {
 			dev: {
 				files: {
-					'.dev/css/app.css': 'src/css/**/*.styl'
+					'.dev/css/app.css': 'src/css/app.styl'
 				}
 			},
 			dist: {
 				files: {
-					'dist/css/app.css': 'src/css/**/*.styl'
+					'dist/css/app.css': 'src/css/app.styl'
 				}
 			}
 		},

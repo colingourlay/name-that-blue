@@ -1,36 +1,23 @@
-*
-    -webkit-tap-highlight-color rgba(0,0,0,0)
+@import "variables"
+@import "mixins"
+@import "base"
+@import "nav"
 
-html, body
-    margin 0
-    height 100%
-
-body
-    display table
-    width 100%
-    min-height 100%
-    background-color #333
-    font-size 100%
-    font-family 'HelveticaNeue-Light','HelveticaNeue',Helvetica,Arial,sans-serif
-    transition background-color 0.5s
-    -webkit-touch-callout none
-    -webkit-text-size-adjust none
-    -webkit-user-select none
-p
+section p
     margin 0
     color white
-    color rgba(255,255,255,0.75)
+    color rgba(255,255,255,0.8)
     font-size 1.5em
     font-style italic
     line-height 1
 
-span
+section span
     display inline-block
     width 1em
     height 1em
     vertical-align bottom
 
-a
+section a
     display inline-block
     margin .125em
     padding .375em
@@ -38,32 +25,16 @@ a
     color rgba(255,255,255,0.9)
     font-size 3em
     text-decoration none
-    text-shadow 0 0 .075em #666
+    text-shadow 0 0 .075em #707070
     text-shadow 0 0 .075em rgba(0,0,0,0.5)
     cursor pointer
 
-a.result
+section a.result
     cursor default
 
-a.enable-all-colors
+section a.enable-all-colors
     position absolute
     bottom 0
     left 0
     width 100%
-    font-size 1em
-    color rgba(255,255,255,0.75)
-
-.app
-    display table-cell
-    vertical-align middle
-    height 100%
-    min-height 100%
-    text-align center
-
-@media (min-width: 769px)
-    body
-        font-size 150%
-
-@media (min-width: 1025px)
-    body
-        font-size 200%
+    font-size 1.2em
