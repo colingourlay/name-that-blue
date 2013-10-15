@@ -1,5 +1,6 @@
 module.exports = {
   "Adobe": "ff0000",
+  "BuzzFeed": "ee3322",
   "Devour": "fd0001",
   "Dribbble": "ea4c89",
   "Flickr": "ff0084",

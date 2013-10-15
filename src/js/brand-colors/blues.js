@@ -11,6 +11,7 @@ module.exports = {
   "Facebook": "3b5998",
   "Flickr": "0063dc",
   "Foursquare": "25a0ca",
+  "GitHub": "4183c4",
   "IBM": "003e6a",
   "Instagram": "3f729b",
   "Intel": "0071c5",
@@ -22,9 +23,9 @@ module.exports = {
   "Salesforce": "1798c1",
   "Samsung": "0c4da2",
   "Skype": "00aff0",
-  "Stripe": "008cdd",
   "Tumblr": "34526f",
-  "Twitter": "00acee",
+  "Trello": "27709b",
+  "Twitter": "00aced",
   "Vimeo": "86c9ef",
   "WordPress": "21759b"
 };

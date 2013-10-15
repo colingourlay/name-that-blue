@@ -3,6 +3,6 @@ module.exports = {
     greens: require('./greens'),
     oranges: require('./oranges'),
     purples: require('./purples'),
-    reds: require('./reds')/*,
-    yellows: require('./yellows')*/
+    reds: require('./reds'),
+    yellows: require('./yellows')
 };
