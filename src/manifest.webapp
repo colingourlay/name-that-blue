@@ -1,0 +1,23 @@
+{
+    "name": "NameThatBlue",
+    "description": "How well do you know your shades of blue? Test your ability to identify the colours of popular brands and companies with this never ending quiz.",
+    "launch_path": "/",
+    "icons": {
+        "16": "/files/icons/circular/16.png",
+        "30": "/files/icons/circular/30.png",
+        "32": "/files/icons/circular/32.png",
+        "48": "/files/icons/circular/48.png",
+        "60": "/files/icons/circular/60.png",
+        "64": "/files/icons/circular/64.png",
+        "90": "/files/icons/circular/90.png",
+        "120": "/files/icons/circular/120.png",
+        "128": "/files/icons/circular/128.png",
+        "256": "/files/icons/circular/256.png"
+    },
+    "developer": {
+        "name": "Colin Gourlay",
+        "url": "http://colin-gourlay.com"
+    },
+    "default_locale": "en",
+    "fullscreen": "true"
+}
