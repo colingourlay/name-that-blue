@@ -8,6 +8,7 @@ module.exports = {
   "Dropbox": "3d9ae8",
   "Drupal": "0c76ab",
   "Engadget": "00bdf6",
+  "Evomail": "065ca2",
   "Facebook": "3b5998",
   "Flickr": "0063dc",
   "Foursquare": "25a0ca",
