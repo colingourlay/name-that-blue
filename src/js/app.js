@@ -15,6 +15,11 @@ document.ontouchmove = function (e) {
     e.preventDefault();
 };
 
+if (util.isStandalone()) {
+    document.body.className += ' standalone';
+}
+
+
 var app = {};
 
 app.el = crel('section', {id: 'app', class: 'app'});
@@ -27,12 +32,12 @@ var navEl = crel('div', {'class': 'nav'},
     crel('a', {href:'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
 );
 document.body.appendChild(navEl);
-var naviconButtonEl = crel('a', {'class': 'navicon_button'}, crel('div', {'class': 'navicon'}));
-naviconButtonEl.onclick = function () {
+var navToggleEl = crel('a', {'class': 'nav_toggle'}, crel('div', {'class': 'nav_toggle__icon'}));
+navToggleEl.onclick = function () {
     navEl.className = 'nav' + (navEl.className.length > 3 ? '' : ' nav-open');
-    naviconButtonEl.className = 'navicon_button' + (naviconButtonEl.className.length > 14 ? '' : ' navicon_button-active');
+    navToggleEl.className = 'nav_toggle' + (navToggleEl.className.length > 14 ? '' : ' nav_toggle-active');
 };
-document.body.appendChild(naviconButtonEl);
+document.body.appendChild(navToggleEl);
 
 var allColorsEnabled = false;
 var numAttempted = 0;

@@ -1,4 +1,7 @@
 module.exports = {
+    isStandalone: function() {
+        return ('standalone' in window.navigator) && (window.navigator.standalone === true);
+    },
     yiq: function (hexcolor) {
         var r = parseInt(hexcolor.substr(0,2),16);
         var g = parseInt(hexcolor.substr(2,2),16);

@@ -19,8 +19,8 @@
     top 2.5em
     left 0
     width 100%
-    height 0.1em
-    background-color white
+    height 0
+    border-bottom solid 1px white
 
 .nav h1
     margin 0 0 .8em
@@ -42,7 +42,7 @@
 .nav-open
     left 0
 
-.navicon_button
+.nav_toggle
     display inline-block
     position absolute
     top 0
@@ -53,10 +53,11 @@
     -webkit-user-select none
     user-select none
     opacity .9
-    .navicon:before, .navicon:after
+    .nav_toggle__icon:before,
+    .nav_toggle__icon:after
         transition .25s
 
-.navicon
+.nav_toggle__icon
     position relative
     width 2.5em
     height .25em
@@ -79,7 +80,7 @@
     &:before
         top .825em
 
-.navicon_button-active
+.nav_toggle-active
     left 13em
     &:before
         content ""
@@ -89,11 +90,12 @@
         width 40em
         height 30em
 
-.navicon_button-active .navicon:before, .navicon_button-active .navicon:after
+.nav_toggle-active .nav_toggle__icon:before,
+.nav_toggle-active .nav_toggle__icon:after
     transition .5s
     top 0
 
-.navicon_button-active .navicon
+.nav_toggle-active .nav_toggle__icon
     background transparent
     &:after
         -webkit-transform rotate(45deg)
@@ -103,3 +105,11 @@
         -webkit-transform rotate(-45deg)
         -ms-transform rotate(-45deg)
         transform rotate(-45deg)
+
+
+.standalone .nav:after,
+.standalone .nav h1
+    padding-top: 20px
+
+.standalone .nav_toggle
+    top 20px
