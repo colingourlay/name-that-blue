@@ -11,6 +11,10 @@ for (var colorGroup in brandColors) {
 }
 var numColorGroups = colorGroups.length;
 
+document.ontouchmove = function (e) {
+    e.preventDefault();
+};
+
 var app = {};
 
 app.el = crel('section', {id: 'app', class: 'app'});
