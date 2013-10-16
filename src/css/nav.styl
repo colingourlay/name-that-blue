@@ -48,7 +48,7 @@
     -webkit-user-select none
     user-select none
     opacity .9
-    .naviconbefore, .naviconafter
+    .navicon:before, .navicon:after
         transition .25s
 
 .navicon
@@ -59,7 +59,7 @@
     font-size .75em
     transition .5s
     border-radius 2.5em
-    &after, &before
+    &:after, &:before
         display block
         content ""
         height .25em
@@ -69,14 +69,14 @@
         z-index -1
         transition .5s .25s
         border-radius 1em
-    &after
+    &:after
         top -.825em
-    &before
+    &:before
         top .825em
 
 .navicon_button-active
     left 13em
-    &before
+    &:before
         content ""
         position absolute
         top 0
@@ -84,17 +84,17 @@
         width 40em
         height 30em
 
-.navicon_button-active .naviconbefore, .navicon_button-active .naviconafter
+.navicon_button-active .navicon:before, .navicon_button-active .navicon:after
     transition .5s
     top 0
 
 .navicon_button-active .navicon
     background transparent
-    &after
+    &:after
         -webkit-transform rotate(45deg)
         -ms-transform rotate(45deg)
         transform rotate(45deg)
-    &before
+    &:before
         -webkit-transform rotate(-45deg)
         -ms-transform rotate(-45deg)
         transform rotate(-45deg)
