@@ -1,4 +1,5 @@
 var crel = require('crel');
+var fastClickAttach = require('fastclick');
 
 var brandColors = require('./brand-colors');
 var util = require('./util');
@@ -10,6 +11,8 @@ for (var colorGroup in brandColors) {
     }
 }
 var numColorGroups = colorGroups.length;
+
+fastClickAttach(document.body);
 
 document.ontouchmove = function (e) {
     e.preventDefault();

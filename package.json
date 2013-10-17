@@ -20,6 +20,7 @@
     "grunt-dir2json": "~0.1.0"
   },
   "dependencies": {
-    "crel": "~1.0.0"
+    "crel": "~1.0.0",
+    "fastclick": "~0.6.11"
   }
 }
