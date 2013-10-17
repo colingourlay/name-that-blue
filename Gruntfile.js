@@ -21,6 +21,9 @@ module.exports = function(grunt) {
 
 		browserify: {
 			dev: {
+				options: {
+					debug: true
+				},
 				files: {
 					'.dev/js/app.js': ['src/js/app.js']
 				}
