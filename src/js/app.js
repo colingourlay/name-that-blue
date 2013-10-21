@@ -32,6 +32,7 @@ var navEl = crel('div', {'class': 'nav'},
     crel('h1', 'Name That Blue'),
     crel('a', {href:'.'}, 'New Game'),
     crel('a', {href:'http://twitter.com/NameThatBlue', target: '_blank'}, 'Follow @NameThatBlue'),
+    crel('a', {href:'https://www.facebook.com/NameThatBlue', target: '_blank'}, 'Like Facebook Page'),
     crel('a', {href:'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
 );
 document.body.appendChild(navEl);
