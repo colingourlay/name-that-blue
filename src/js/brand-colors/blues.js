@@ -24,6 +24,7 @@ module.exports = {
   "Salesforce": "1798c1",
   "Samsung": "0c4da2",
   "Skype": "00aff0",
+  "Swiftly": "147dd2",
   "Tumblr": "34526f",
   "Trello": "27709b",
   "Twitter": "00aced",

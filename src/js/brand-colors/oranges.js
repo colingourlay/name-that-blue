@@ -1,4 +1,5 @@
 module.exports = {
+  "99designs": 'f26739',
   "Amazon": "e47911",
   "Blogger": "fc4f08",
   "Etsy": "eb6d20",
