@@ -4,7 +4,7 @@ module.exports = {
   "Behance": "053eff",
   "Delicious": "205cc0",
   "Dell": "3287c1",
-  "Disqus": "59a3fc",
+  "Disqus": "2e9fff",
   "Dropbox": "3d9ae8",
   "Drupal": "0c76ab",
   "Engadget": "00bdf6",
