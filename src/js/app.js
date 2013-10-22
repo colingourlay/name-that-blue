@@ -28,20 +28,8 @@ var app = {};
 app.el = crel('section', {id: 'app', class: 'app'});
 document.body.appendChild(app.el);
 
-var navEl = crel('div', {'class': 'nav'},
-    crel('h1', 'Name That Blue'),
-    crel('a', {href:'.'}, 'New Game'),
-    crel('a', {href:'http://twitter.com/NameThatBlue', target: '_blank'}, 'Follow @NameThatBlue'),
-    crel('a', {href:'https://www.facebook.com/NameThatBlue', target: '_blank'}, 'Like Facebook Page'),
-    crel('a', {href:'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
-);
-document.body.appendChild(navEl);
-var navToggleEl = crel('a', {'class': 'nav_toggle'}, crel('div', {'class': 'nav_toggle__icon'}));
-navToggleEl.onclick = function () {
-    navEl.className = 'nav' + (navEl.className.length > 3 ? '' : ' nav-open');
-    navToggleEl.className = 'nav_toggle' + (navToggleEl.className.length > 14 ? '' : ' nav_toggle-active');
-};
-document.body.appendChild(navToggleEl);
+// Add nav & toggle
+var nav = require('./nav')(document);
 
 var allColorsEnabled = false;
 var numAttempted = 0;

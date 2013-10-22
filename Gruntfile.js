@@ -36,9 +36,6 @@ module.exports = function(grunt) {
 		},
 
 		uglify: {
-			options: {
-				mangle: false
-			},
 			dist: {
 				files: {
 					'dist/js/app.js': ['dist/js/app.js']
