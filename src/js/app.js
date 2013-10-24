@@ -39,19 +39,25 @@ var choicesFilter = function (set) {
 };
 
 function getChoices(set) {
-    var names, correctName, incorrectName;
+    var correctNameCandidtes, correctName, incorrectNameCandidtes, incorrectName;
 
-    names = _.filter(_.keys(set), choicesFilter(set));
+    correctNameCandidtes = _.filter(_.keys(set), choicesFilter(set));
 
-    if (names.length < 2) {
+    if (correctNameCandidtes.length < 2) {
         throw new Error('Color set is too small to play with');
     }
 
-    correctName = incorrectName = util.pick(names);
+    correctName = util.pick(correctNameCandidtes);
 
-    while (correctName === incorrectName || !util.hexesInSameColorGroup(set[correctName], set[incorrectName])) {
-        incorrectName = util.pick(names);
+    incorrectNameCandidtes = _.filter(correctNameCandidtes, function (name) {
+        return name !== correctName && util.hexesInSameColorGroup(set[correctName], set[name]);
+    });
+
+    if (incorrectNameCandidtes.length < 1) {
+        throw new Error('Color group is too small to play with');
     }
+
+    incorrectName = util.pick(incorrectNameCandidtes);
 
     return {
         correct: {
