@@ -1,16 +1,9 @@
+var _ = require('lodash');
 var crel = require('crel');
 var fastClickAttach = require('fastclick');
 
-var brandColors = require('./brand-colors');
+var colorSets = require('./color-sets');
 var util = require('./util');
-
-var colorGroups = [];
-for (var colorGroup in brandColors) {
-    if (brandColors.hasOwnProperty(colorGroup)) {
-        colorGroups.push(colorGroup);
-    }
-}
-var numColorGroups = colorGroups.length;
 
 fastClickAttach(document.body);
 
@@ -21,7 +14,6 @@ document.ontouchmove = function (e) {
 if (util.isStandalone()) {
     document.body.className += ' standalone';
 }
-
 
 var app = {};
 
@@ -34,39 +26,32 @@ var nav = require('./nav')(document);
 var allColorsEnabled = false;
 var numAttempted = 0;
 var numCorrect = 0;
+var currentColorSet = 'brands';
 
-function getChoices() {
-    var brand, brands, numBrands, indexA, indexB;
+var choicesFilter = function (set) {
+    return function (name) {
+        return allColorsEnabled ? true : util.isBlue(set[name]);
+    };
+};
 
-    var colorGroup = allColorsEnabled ? colorGroups[Math.floor(Math.random() * numColorGroups)] : 'blues';
+function getChoices(set) {
+    var names, correctName, incorrectName;
 
-    if (!getChoices[colorGroup]) {
-        getChoices[colorGroup] = [];
-        for (brand in brandColors[colorGroup]) {
-            if (brandColors[colorGroup].hasOwnProperty(brand)) {
-                getChoices[colorGroup].push(brand);
-            }
-        }
-    }
+    names = _.filter(_.keys(set), choicesFilter(set));
+    correctName = incorrectName = util.pick(names);
 
-    brands = getChoices[colorGroup];
-    numBrands = brands.length;
-
-    indexA = Math.floor(Math.random() * numBrands);
-    indexB = indexA;
-
-    while (indexA === indexB) {
-        indexB = Math.floor(Math.random() * numBrands);
+    while (correctName === incorrectName || !util.hexesInSameColorGroup(set[correctName], set[incorrectName])) {
+        incorrectName = util.pick(names);
     }
 
     return {
         correct: {
-            brand: brands[indexA],
-            color: brandColors[colorGroup][brands[indexA]]
+            name: correctName,
+            color: set[correctName]
         },
         incorrect: {
-            brand: brands[indexB],
-            color: brandColors[colorGroup][brands[indexB]]
+            name: incorrectName,
+            color: set[incorrectName]
         }
 
     };
@@ -75,19 +60,19 @@ function getChoices() {
 function nextRound() {
 
     var coin = Math.random() > 0.5;
-    var choices = getChoices();
+    var choices = getChoices(colorSets[currentColorSet]);
 
     var choiceA = coin ? choices.correct : choices.incorrect;
     var choiceB = coin ? choices.incorrect : choices.correct;
 
-    var choiceAEl = crel('a', choiceA.brand);
-    var choiceBEl = crel('a', choiceB.brand);
+    var choiceAEl = crel('a', choiceA.name);
+    var choiceBEl = crel('a', choiceB.name);
     var orEl = crel('p', 'or');
 
     var enableAllColorsEl = crel('a', {'class': 'enable-all-colors'}, 'Want more than blues?');
 
     var onChoose = function () {
-        var isCorrect = (this.textContent || this.innerText) === choices.correct.brand;
+        var isCorrect = (this.textContent || this.innerText) === choices.correct.name;
 
         if (isCorrect) {
             numCorrect++;
@@ -96,7 +81,7 @@ function nextRound() {
 
         app.el.innerHTML = "";
 
-        var result = isCorrect ? 'Correct!' : 'Nope, it\'s ' + choices.correct.brand;
+        var result = isCorrect ? 'Correct!' : 'Nope, it\'s ' + choices.correct.name;
         var resultEl = crel('a', {'class': 'result'}, result);
         app.el.appendChild(resultEl);
 
@@ -122,7 +107,6 @@ function nextRound() {
 
     app.el.innerHTML = "";
     document.body.style.backgroundColor = '#' + choices.correct.color;
-    // document.body.className = util.yiq(choices.correct.color) > 200 ? 'light' : 'dark';
 
     setTimeout(function () {
         app.el.appendChild(choiceAEl);
