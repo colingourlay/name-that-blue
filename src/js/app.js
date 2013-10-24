@@ -26,7 +26,11 @@ var nav = require('./nav')(document);
 var allColorsEnabled = false;
 var numAttempted = 0;
 var numCorrect = 0;
-var currentColorSet = 'brands';
+var currentColorSet = 'tech-brands';
+
+if (location.search && colorSets[location.search.substr(1)]) {
+    currentColorSet = location.search.substr(1);
+}
 
 var choicesFilter = function (set) {
     return function (name) {
@@ -38,6 +42,11 @@ function getChoices(set) {
     var names, correctName, incorrectName;
 
     names = _.filter(_.keys(set), choicesFilter(set));
+
+    if (names.length < 2) {
+        throw new Error('Color set is too small to play with');
+    }
+
     correctName = incorrectName = util.pick(names);
 
     while (correctName === incorrectName || !util.hexesInSameColorGroup(set[correctName], set[incorrectName])) {

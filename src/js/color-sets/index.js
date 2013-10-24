@@ -1,3 +1,4 @@
 module.exports = {
-    brands: require('./brands')
+    'car-brands': require('./car-brands'),
+    'tech-brands': require('./tech-brands')
 };
