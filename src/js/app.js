@@ -28,8 +28,9 @@ var numAttempted = 0;
 var numCorrect = 0;
 var currentColorSet = 'tech-brands';
 
-if (location.search && colorSets[location.search.substr(1)]) {
-    currentColorSet = location.search.substr(1);
+var requestedSet = location.search && location.search.substr(1).split('=')[0];
+if (colorSets['' + requestedSet]) {
+    currentColorSet = requestedSet;
 }
 
 var choicesFilter = function (set) {
