@@ -13,6 +13,7 @@ module.exports = function (document) {
         crel('h1', 'Name That Blue'),
         crel('a', {href: '.', 'class': (!currentColorSet || currentColorSet === 'tech-brands') ? 'current' : ''}, 'Tech Brands'),
         crel('a', {href: '?nfl-teams', 'class': currentColorSet === 'nfl-teams' ? 'current' : ''}, 'NFL Teams'),
+        crel('a', {href: '?mlb-teams', 'class': currentColorSet === 'mlb-teams' ? 'current' : ''}, 'MLB Teams'),
         crel('a', {href: 'http://twitter.com/NameThatBlue', target: '_blank', 'class': 'twitter'}, '@NameThatBlue'),
         crel('a', {href: 'https://www.facebook.com/NameThatBlue', target: '_blank', 'class': 'facebook'}, 'FB.com/NameThatBlue'),
         crel('a', {href: 'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
