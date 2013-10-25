@@ -29,15 +29,57 @@
     font-style italic
 
 .nav a
+    position relative
     margin-bottom .5em
     display block
     color white
     text-decoration none
 
-.nav .credit
+.nav a:after
+    content "play"
     position absolute
+    top .25em
+    right 0
     font-size .75em
+    text-transform uppercase
+
+.nav a.current:after
+    content "\21bb"
+    top 0
+    font-size 1em
+
+
+.nav .credit
+.nav .facebook
+.nav .twitter
+    position absolute
+    width 100%
+    font-size .75em
+
+.nav .credit
     bottom .25em
+
+.nav .facebook
+    bottom 2em
+
+.nav .twitter
+    bottom 3.75em
+
+.nav .credit:after
+.nav .facebook:after
+.nav .twitter:after
+    font-size 1em
+    top 0
+    right 1.8em
+
+.nav .credit:after
+    display none
+
+.nav .facebook:after
+    content: "like"
+
+.nav .twitter:after
+    content: "follow"
 
 .nav-open
     left 0

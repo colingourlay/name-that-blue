@@ -1,14 +1,21 @@
 var crel = require('crel');
 
+var colorSets = require('./color-sets');
+
 module.exports = function (document) {
-    var navEl, toggleEl;
+    var currentColorSet, navEl, toggleEl;
+
+    if (location.search && colorSets[location.search.substr(1)]) {
+        currentColorSet = location.search.substr(1);
+    }
 
     navEl = crel('div', {'class': 'nav'},
         crel('h1', 'Name That Blue'),
-        crel('a', {href:'.'}, 'New Game'),
-        crel('a', {href:'http://twitter.com/NameThatBlue', target: '_blank'}, 'Follow @NameThatBlue'),
-        crel('a', {href:'https://www.facebook.com/NameThatBlue', target: '_blank'}, 'Like Facebook Page'),
-        crel('a', {href:'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
+        crel('a', {href: '.', 'class': (!currentColorSet || currentColorSet === 'tech-brands') ? 'current' : ''}, 'Tech Brands'),
+        crel('a', {href: '?nfl-teams', 'class': currentColorSet === 'nfl-teams' ? 'current' : ''}, 'NFL Teams'),
+        crel('a', {href: 'http://twitter.com/NameThatBlue', target: '_blank', 'class': 'twitter'}, '@NameThatBlue'),
+        crel('a', {href: 'https://www.facebook.com/NameThatBlue', target: '_blank', 'class': 'facebook'}, 'FB.com/NameThatBlue'),
+        crel('a', {href: 'http://colin-gourlay.com/', target: '_blank', 'class': 'credit'}, 'Colin Gourlay ' + (new Date()).getFullYear())
     );
 
     toggleEl = crel('a', {'class': 'nav_toggle'}, crel('div', {'class': 'nav_toggle__icon'}));
