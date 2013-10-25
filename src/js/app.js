@@ -50,7 +50,9 @@ function getChoices(set) {
     correctName = util.pick(correctNameCandidtes);
 
     incorrectNameCandidtes = _.filter(correctNameCandidtes, function (name) {
-        return name !== correctName && util.hexesInSameColorGroup(set[correctName], set[name]);
+        return name !== correctName &&
+            set[name] !== set[correctName] &&
+            util.hexesInSameColorGroup(set[name], set[correctName]);
     });
 
     if (incorrectNameCandidtes.length < 1) {

@@ -22,7 +22,6 @@
   "dependencies": {
     "crel": "~1.0.0",
     "fastclick": "~0.6.11",
-    "color-convert": "~0.3.1",
     "lodash": "~2.2.1"
   }
 }
