@@ -45,6 +45,7 @@ module.exports = {
     "Medium": "57ad68",
     "Meetup": "e51937",
     "MetaFilter": "006699",
+    "Moo": "66aa00",
     "Mixpanel": "a086d3",
     "NVIDIA": "76b900",
     "Nokia": "183693",
@@ -82,5 +83,5 @@ module.exports = {
     "Yelp": "c41200",
     "YouTube": "c4302b",
     "Zendesk": "78a300",
-    "Zerply": "9dcc7a",
+    "Zerply": "9dcc7a"
 };
