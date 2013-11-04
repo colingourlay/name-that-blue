@@ -44,6 +44,7 @@ module.exports = {
     "LinkedIn": "0e76a8",
     "Medium": "57ad68",
     "Meetup": "e51937",
+    "Mention": "36a3dc",
     "MetaFilter": "006699",
     "Moo": "66aa00",
     "Mixpanel": "a086d3",
