@@ -58,7 +58,6 @@ module.exports = {
     "Quora": "a82400",
     "Rdio": "008fd5",
     "Red Hat": "cc0000",
-    "Salesforce": "1798c1",
     "Samsung": "0c4da2",
     "Shopify": "96bf48",
     "Skype": "00aff0",
