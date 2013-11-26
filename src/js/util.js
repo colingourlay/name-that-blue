@@ -78,8 +78,8 @@ function fnIsHueInRange(min, max) {
     };
 }
 
-util.isOrange = _.memoize(fnIsHueInRange(14, 44));
-util.isYellow = _.memoize(fnIsHueInRange(45, 59));
+util.isOrange = _.memoize(fnIsHueInRange(14, 40));
+util.isYellow = _.memoize(fnIsHueInRange(41, 59));
 util.isGreen = _.memoize(fnIsHueInRange(60, 164));
 util.isBlue = _.memoize(fnIsHueInRange(165, 239));
 util.isPurple = _.memoize(fnIsHueInRange(240, 314));

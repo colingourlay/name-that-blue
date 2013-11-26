@@ -7,6 +7,9 @@
     "email": "colin@colin-gourlay.com",
     "url": "http://namethatblue.com/"
   },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-browserify": "~1.2.1",
@@ -17,7 +20,8 @@
     "grunt-contrib-stylus": "~0.6.0",
     "grunt-contrib-uglify": "~0.2.4",
     "grunt-contrib-watch": "~0.2.0",
-    "grunt-dir2json": "~0.1.0"
+    "grunt-dir2json": "~0.1.0",
+    "tap": "~0.4.6"
   },
   "dependencies": {
     "crel": "~1.0.0",
