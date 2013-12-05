@@ -2,6 +2,7 @@ module.exports = {
     "Atlanta Hawks": "01244C", // blue
     "Atlanta Hawks ": "D21033", // red
     "Boston Celtics": "05854C", // green
+    // "Brooklyn Nets": "000000", // black
     "Charlotte Bobcats": "F26532", // orange
     "Charlotte Bobcats ": "29588B", // blue
     "Chicago Bulls": "D4001F", // red
@@ -27,8 +28,6 @@ module.exports = {
     "Milwaukee Bucks": "00330A", // green
     "Milwaukee Bucks ": "C82A39", // red
     "Minnesota Timberwolves": "015287", // blue
-    "New Jersey Nets": "002258", // blue
-    "New Jersey Nets ": "D32E4C", // red
     "New Orleans Pelicans": "0095CA", // blue
     "New Orleans Pelicans ": "FEBB25", // yellow
     "New York Knicks": "2E66B2", // blue
