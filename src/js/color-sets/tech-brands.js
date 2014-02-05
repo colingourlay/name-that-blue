@@ -67,6 +67,7 @@ module.exports = {
     "Spotify": "81b71a",
     "Sprint": "fee100",
     "Stack Overflow": "ef8236",
+    "Stripe": "3da8e5",
     "Swiftly": "147dd2",
     "TechCrunch": "0a9600",
     "The Next Web": "ef4423",
